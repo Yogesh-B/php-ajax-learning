@@ -98,7 +98,6 @@
                     });
                 }
             });
-//#3 lectures completed
         });
     </script>
 </body>
