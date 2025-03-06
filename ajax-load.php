@@ -14,15 +14,19 @@ if (mysqli_num_rows($result) > 0) {
     <tr>
     <th width="100px">Id</th>
     <th>Name</th>
-    <th width="100px">Delete</th>
+    <th width="90px">Edit</th>
+    <th width="90px">Delete</th>
     </tr>
      ';
 
     while($raw = mysqli_fetch_assoc($result)){
             $output.="
             <tr>
-                <td>{$raw["id"]}</td>
-                <td>{$raw["first_name"]} {$raw["last_name"]}</td>
+                <td class='id'>{$raw["id"]}</td>
+                <td><span class='fname'>{$raw["first_name"]}</span>
+<span class='lname'>{$raw["last_name"]}</span>
+</td>
+                <td><button class='edit-btn' data-id='{$raw["id"]}'>Edit</button></td>
                 <td><button class='delete-btn' data-id='{$raw["id"]}'>Delete</button></td>
             </tr>
             ";
@@ -32,5 +36,5 @@ if (mysqli_num_rows($result) > 0) {
 
     echo $output;
 } else {
-    echo '<h2>No Record Found!</h2>';//#WE ARE HERE----1-19:09
+    echo '<h2>No Record Found!</h2>';
 }
